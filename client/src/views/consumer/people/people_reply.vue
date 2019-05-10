@@ -1,0 +1,132 @@
+<template>
+  <div id="people_reply">
+    <h3 class="List-header">Ta的回复</h3>
+    <a-skeleton :loading="loading" active :row="4">
+      <div v-if="list.length !=0">
+        <div class="List-item" v-for="(item, index) in list" :key="index">
+          <div class="List-itemMeta">
+            <span class="ActivityItem-metaTitle">回复了</span>
+            <span>{{item.date |time}}</span>
+          </div>
+          <div>
+            <div class="ContentItem-title user">
+              <img :src="item.reply_avatar" alt>
+              <span @click="goToPeople(item.reply_name)">
+                <a>{{item.reply_name}}</a>
+              </span>
+            </div>
+            <div class="RichContent">{{item.content}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="list_zero" v-else>暂无数据</div>
+    </a-skeleton>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      loading: true,
+      list: [],
+      userinfo: {}
+    };
+  },
+  methods: {
+    getDate() {
+      this.$axios
+        .post("/api/usersactive/reply", { user_name: this.userinfo.name })
+        .then(res => {
+          console.log(res.data);
+          this.list = res.data.data;
+          this.loading = false;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    goToPeople(userName) {
+      var loginUser =
+        this.$store.state.Userinfo ||
+        JSON.parse(localStorage.getItem("setUserinfo"));
+      if (userName == loginUser.name) {
+        this.$router.push({
+          name: "MyAll"
+        });
+      } else
+        this.$router.push({
+          name: "PeopleAll",
+          params: { user: userName }
+        });
+    },
+  },
+  created() {
+    this.userinfo.name = this.$route.params.user;
+    document.title = this.userinfo.name + "-的回复";
+    this.getDate();
+  }
+};
+</script>
+
+<style scoped>
+#people_reply {
+  margin: 0 20px;
+}
+h3 {
+  font-weight: bold;
+}
+.List-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  border-bottom: 1px solid #e4e7ed;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.List-item {
+  position: relative;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f6f6f6;
+}
+.List-itemMeta {
+  margin-bottom: 10px;
+  color: #8590a6;
+  display: flex;
+  justify-content: space-between;
+}
+.ActivityItem-metaTitle {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+}
+.ContentItem-title {
+  font-size: 18px;
+  font-weight: 600;
+  font-synthesis: style;
+  line-height: 1.6;
+  color: #1a1a1a;
+  margin-top: -4px;
+}
+.listType1 {
+  display: flex;
+}
+.listType1 img {
+  width: 90px;
+}
+.user {
+  display: flex;
+  /* justify-content: center; */
+  height: 45px;
+  margin-left: 50px;
+}
+.user img {
+  height: 20px;
+  border-radius: 50%;
+}
+.user span {
+  margin-left: 8px;
+  font-size: 14px;
+}
+</style>
