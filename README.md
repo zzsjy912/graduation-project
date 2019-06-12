@@ -2,7 +2,7 @@
 毕业设计，借用豆瓣API的影迷社区网站(仿豆瓣)
 ## 技术栈
 Vue全家桶+Express+MongoDB
-## 技术社
+## 使用
 本系统前后端分离开发模式，服务器端采用Node.js技术，使用Express框架，编写接口
 Multer用于文件上传，Bcrypt用于密码加密，JsonWebToken用于封装Token，Passport-Jwt、Passport验证Token
 Node-Schedule用于定时任务，Request请求第三方网站数据；
@@ -15,9 +15,21 @@ Node-Schedule用于定时任务，Request请求第三方网站数据；
 3. 用户管理模块：设立管理员与用户区分账户，并在前端和后端进行判断管理员账号可进入后台管理社区；管理员用户可禁用、解禁普通用户。
 4. 信息维护模块；查询、发布公告；查询、管理电影条目；查询、管理影评文章。 
 ## 实例截图
-<div >
+<div>
   <img src="./screenshot/index.png">
+  <img src="./screenshot/movie-page.png">
+  <img src="./screenshot/article.png">
+  <img src="./screenshot/article-page.png">
+  <img src="./screenshot/edit.png">
+  <img src="./screenshot/paragraph.png">
+  <img src="./screenshot/home-page.png">
+  <img src="./screenshot/message.png">
+  <img src="./screenshot/management1.png">
+  <img src="./screenshot/management2.png">
+  <img src="./screenshot/management3.png">
+  <img src="./screenshot/management4.png">
 </div>
+
 ## 开发
 ``` shell
 $ npm install
@@ -26,3 +38,6 @@ $ npm run server
 $ cd client
 $ npm run serve
 ```
+## 实例账户
+普通用户：test3@126.com 密码：123
+管理员用户: admin@126.com 密码：123
