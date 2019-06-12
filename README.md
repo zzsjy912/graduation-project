@@ -6,7 +6,7 @@ Vue全家桶+Express+MongoDB
 本系统前后端分离开发模式，服务器端采用Node.js技术，使用Express框架，编写接口<br>
 Multer用于文件上传，Bcrypt用于密码加密，JsonWebToken用于封装Token，Passport-Jwt、Passport验证Token
 Node-Schedule用于定时任务，Request请求第三方网站数据；<br>
-前端采用MVVM开发模式，使用WebPage构建工具，Vue作为前端框架，Vue-Router用于路由跳转，Vuex状态管理，Axios拦截请求，Wangeditor富文本编辑器借用Elemen、Ant Design组件库，采用封装组件的方式实现页面；<br>
+前端采用MVVM开发模式，使用WebPack构建工具，Vue作为前端框架，Vue-Router用于路由跳转，Vuex状态管理，Axios拦截请求，Wangeditor富文本编辑器借用Elemen、Ant Design组件库，采用封装组件的方式实现页面；<br>
 数据库采用MongoDB，使用Mongoose操作。
 ## 功能描述
 本设计主要实现以下模块：
