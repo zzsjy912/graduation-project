@@ -3,7 +3,7 @@
 ## 技术栈
 Vue全家桶+Express+MongoDB
 ## 使用
-本系统前后端分离开发模式，服务器端采用Node.js技术，使用Express框架，编写接口<br><br>
+本系统前后端分离开发模式，服务器端采用Node.js技术，使用Express框架，编写接口<br>
 Multer用于文件上传，Bcrypt用于密码加密，JsonWebToken用于封装Token，Passport-Jwt、Passport验证Token
 Node-Schedule用于定时任务，Request请求第三方网站数据；<br>
 前端采用MVVM开发模式，使用WebPage构建工具，Vue作为前端框架，Vue-Router用于路由跳转，Vuex状态管理，Axios拦截请求，Wangeditor富文本编辑器借用Elemen、Ant Design组件库，采用封装组件的方式实现页面；<br>
@@ -23,7 +23,7 @@ $ cd client
 $ npm run serve
 ```
 ## 实例账户
-[线上地址](http://bestjianyu.xin) (未优化打包 首次加载较慢)
+[线上地址](http://bestjianyu.xin) (未优化打包 首次加载较慢)<br>
 普通用户：test3@126.com 密码：123<br>
 管理员用户: admin@126.com 密码：123
 
